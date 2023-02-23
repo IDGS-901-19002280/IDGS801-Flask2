@@ -1,4 +1,4 @@
-{%extends 'layout.html'%}
+{% extends 'layout.html' %}
 
 {%block content%}
 
@@ -13,6 +13,7 @@
         </div>
     </form>
     <hr>
+    
 
     {%from "_macros.html" import render_cajas%}
     <form action="/calcular" method="post">
@@ -25,7 +26,7 @@
             </div>
         {%else%}
             <h3></h3>
-        {%endif%}
+        {% endif %}
     </form>
 </div>
 

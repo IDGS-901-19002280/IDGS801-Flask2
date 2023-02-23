@@ -14,6 +14,16 @@
     {{field(**kwargs)|safe}}
   </div>
 </div>
+{%if field.errors%}
+
+<ul>
+  {%for error in field.errors%}
+  <li style="color: red;">
+    {{error}}
+  </li>
+  {%end for%}
+</ul>
+{%endif%}
 {%endmacro%}
 
 {%macro render_cajas(numero)%}
@@ -32,3 +42,4 @@
   <p>El número {{repeat[0]}} se repitió {{repeat[1]}} veces. </p>
   {%endif%}
 {%endmacro%}
+
