@@ -1,12 +1,13 @@
 {%extends 'layout.html'%}
 
 {%block content%}
-<div class="col-xs-6">
+<div class="w3-card-4">
+    <div class="w3-container w3-teal">
+        <h2>Formulario de Registro</h2>
+    </div>
     {%from "_macros.html" import render_field%}
-    <form action="#" method="post">
-        <div class="form-group">
-            {{render_field(form.matricula)}}
-        </div>
+    <form action="#" class="w3-container w3-light-grey" style="padding-bottom: 1rem;" method="post" novalidate>
+        {{render_field(form.matricula)}}
         {{render_field(form.nombre)}}
         {{render_field(form.apaterno)}}
         {{render_field(form.amaterno)}}
@@ -20,5 +21,8 @@
 <div class="col-xs-6">
     <h3>Matricula: {{mat}}</h3>
     <h3>Nombre: {{nom}}</h3>
+    <h3>App: {{app}}</h3>
+    <h3>Apm: {{apm}}</h3>
+    <h3>Email: {{ema}}</h3>
 </div>
 {%endblock%}

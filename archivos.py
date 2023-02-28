@@ -1,7 +1,8 @@
 
 
-file=open('alumnos2.txt','w')
-file.write('Nuevo Hola mundo!!!')
+file=open('alumnos2.txt','a')
+file.write('\n'+'Nuevo Hola mundo!!!')
+file.write('\n'+'Hola mundo 2')
 file.close()
 """
 for item in nombres:

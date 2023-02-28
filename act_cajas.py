@@ -46,3 +46,33 @@ class Calculadora:
                 num_Mayor = num
         
         return num_Mayor
+    
+class Traductor:
+    Words = []
+    
+    def guardar(spanish, english):
+        file = open('traduccion.txt', 'a')
+        file.write("," + spanish.lower() + ":" + english.lower())
+        file.close()
+    
+    def buscar_Palabra(busqueda, idioma):
+        lan = "english" if idioma == "spanish" else "spanish"
+        file = open('traduccion.txt', 'r')
+        palabras = file.read().split(",")
+        file.close()
+        traducciones = []
+        for traduccion in palabras:
+            palabra = traduccion.split(":")
+            traducciones.append({
+                "spanish" : palabra[0],
+                "english" : palabra[1]
+            })
+        
+        for nn in traducciones:
+            if nn[lan] == busqueda.lower():
+                return nn[idioma]
+        
+        return "No se encontró la palabra"
+        
+        
+        
