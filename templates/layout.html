@@ -23,6 +23,8 @@
             <span class="material-icons icon" style="font-size: 1.5rem;">cookie</span> COOKIE</a>
         <a href="/traductor" class="w3-bar-item w3-button w3-padding-large {{'active' if name == 'Traductor' else ''}}">
             <span class="material-icons icon" style="font-size: 1.5rem;">translate</span> TRADUCTOR</a>
+        <a href="/resistencia" class="w3-bar-item w3-button w3-padding-large {{'active' if name == 'Resistencia' else ''}}">
+            <span class="material-icons icon" style="font-size: 1.5rem;">#</span> RESISTENCIA</a>
         
         {%with messages = get_flashed_messages()%}
             {%if messages%}
@@ -31,8 +33,7 @@
                 {%endfor%}
             {%endif%}
         {%endwith%}
-        <p class="w3-bar-item w3-right" style="margin-block-start: 0px; margin-block-end: 0px; padding-right: 3rem">
-            <span class="material-icons icon" style="font-size: 1.5rem;">person</span> Jesús Méndez Álvarez</p>
+        
         </div>
     </div>
 

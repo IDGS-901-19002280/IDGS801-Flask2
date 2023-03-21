@@ -1,13 +1,13 @@
-from flask import Flask, request, render_template, redirect, make_response, flash
-
+from flask import Flask, render_template, redirect, url_for, request, make_response, flash
 import forms
 from act_cajas import Calculadora, Traductor
-from flask_wtf import CSRFProtect
+from act3_Resistencias import Resistencia
+from flask_wtf.csrf import CSRFProtect
  
 
 app = Flask(__name__)
-#app.config['SECRET_KEY']="esta es tu clave encriptada"
-#csrf=CSRFProtect(app)
+app.config['SECRET_KEY']="esta es tu clave encriptada"
+csrf=CSRFProtect(app)
 
 @app.route('/')
 def mainn():
@@ -89,9 +89,29 @@ def traductor():
             word = request.form.get('word')
             lan = request.form.get('select')
             result = "Traducción: {}".format(Traductor.buscar_Palabra(word, lan))
-            
-    
     return render_template('traductor.html', name='Traductor', form=reg_palabra, result = result, search = word)
+
+
+@app.route("/resistencia", methods=['GET', 'POST'])
+def resistencia():
+    resistors = Resistencia()
+    res = {}
+    banda1 = ''
+    banda2 = ''
+    banda3 = ''
+    tolerancia = ''
+    resistencia = forms.ResistenciaForm(request.form)
+    if request.method == 'POST' and resistencia.validate():
+        banda1 = resistors.setColor(resistencia.banda1.data)
+        banda2 = resistors.setColor(resistencia.banda2.data)
+        banda3 = resistors.setColor(resistencia.banda3.data)
+        tolerancia = resistors.setTolerancia(resistencia.tolerancia.data)
+        res = resistors.calcular(resistencia)
+        flash('Calculo registrado', 'success')
+    return render_template('resistencia.html', form=resistencia, banda1=banda1, banda2=banda2, banda3=banda3, tolerancia=tolerancia, res=res)
+
+
+
 
 if __name__ == "__main__":
     #csrf.init_app(app)

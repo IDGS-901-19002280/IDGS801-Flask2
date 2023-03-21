@@ -31,7 +31,46 @@ class LoginForm(Form):
 class Languages(Form):
     spanish = StringField('Español', [
                             validators.DataRequired(message='El campo es requerido'),
-                            validators.length(min=2, max=10, message='El largo del texto tiene que estar entre 2 y 10')])
+                            validators.length(min=2, max=10, message='Longitud del texto tiene que estar entre 2 y 10 caracteres')])
     english = StringField('Inglés', [
                             validators.DataRequired(message='El campo es requerido'),
-                            validators.length(min=1, max=10, message='El largo del texto tiene que estar entre 1 y 10')])
+                            validators.length(min=1, max=10, message='Longitud del texto tiene que estar entre 2 y 10 caracteres')])
+    
+
+class ResistenciaForm(FlaskForm):
+    banda1 = SelectField('Banda 1', choices=[('0', 'Negro'), 
+                                                  ('1', 'Marron'), 
+                                                  ('2', 'Rojo'), 
+                                                  ('3', 'Naranja'), 
+                                                  ('4', 'Amarillo'), 
+                                                  ('5', 'Verde'), 
+                                                  ('6', 'Azul'), 
+                                                  ('7', 'Violeta'), 
+                                                  ('8', 'Gris'), 
+                                                  ('9', 'Blanco')], 
+                              default='0')
+    banda2 = SelectField('Banda 2', choices=[('0', 'Negro'), 
+                                                  ('1', 'Marron'), 
+                                                  ('2', 'Rojo'), 
+                                                  ('3', 'Naranja'), 
+                                                  ('4', 'Amarillo'), 
+                                                  ('5', 'Verde'), 
+                                                  ('6', 'Azul'), 
+                                                  ('7', 'Violeta'), 
+                                                  ('8', 'Gris'), 
+                                                  ('9', 'Blanco')], 
+                              default='0')
+    banda3 = SelectField('Banda 3', choices=[('0', 'Negro'), 
+                                                  ('1', 'Marron'), 
+                                                  ('2', 'Rojo'), 
+                                                  ('3', 'Naranja'), 
+                                                  ('4', 'Amarillo'), 
+                                                  ('5', 'Verde'), 
+                                                  ('6', 'Azul'), 
+                                                  ('7', 'Violeta'), 
+                                                  ('8', 'Gris'), 
+                                                  ('9', 'Blanco')], 
+                              default='0')    
+    tolerancia = RadioField('Tolerancia', choices=[('1', 'Dorado = 5%'), ('2', 'Plateado = 10%')], default='1')
+    submit = SubmitField('Calcular')
+

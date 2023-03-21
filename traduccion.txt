@@ -1,1 +1,1 @@
-hola:hello,rojo:red,leer:read,leer:read,familia:family,cómics:comic,texto:text,bomba:bomb,hola:hi,cola:tail
+hola:hello,rojo:red,leer:read,leer:read,familia:family,cómics:comic,texto:text,bomba:bomb,hola:hi,cola:tail,hola:hi,pelota:ball
